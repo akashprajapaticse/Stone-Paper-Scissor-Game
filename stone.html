@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rock Paper Scissor Game</title>
+        <style>
+                body{
+                        background-color: rgb(0, 255, 213);
+                }
+                img{
+                        border-radius: 50%;
+                        height: 50px;
+                }
+                button{
+                        background-color: rgb(0, 255, 213);
+                        border: none;
+                }
+                th{
+                        padding: 10px;
+                        background-color: rgb(137, 27, 137);
+                        color: white;
+                        height: 60px;
+                        width: 60px;
+                        border-radius: 10px;
+                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                }
+                td{
+                        padding: 10px;
+                        background-color: rgb(247, 220, 170);
+                        height: 80px;
+                        border-radius: 10px;
+                        width: 80px;
+                        color: black;
+                        font-size: large;
+                        font-weight: bolder;
+                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                }
+                h3{
+                        color: white;
+                        background-color: black;
+                        font-weight: bolder;
+                        font-style: italic;
+                        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                }
+                h1{
+                        color: White;
+                        background-color: black;
+                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                }
+        </style>
+</head>
+<body>
+        <center>
+                <div><h1>Rock Paper Scissor</h1></div>
+        <div>
+                <button id="rock"><img src="rock.png"></button>
+                <button id="paper"><img src="paper.png"></button>
+                <button id="scissor"><img src="scissors.png"></button>
+                <button id="reset"><img src="reset.jpg" style="height: 20px; margin-bottom: 15px;"></button>
+        </div>
+        <div>
+                <h3>Game Summary</h3>
+                <table>
+                        <th>Win</th>
+                        <th>Loses</th>
+                        <th>Ties</th>
+                        <th>Games Played</th>
+                        <tr>
+                                <td id="win">0</td>
+                                <td id="loses">0</td>
+                                <td id="ties">0</td>
+                                <td id="gamesplayed">0</td>
+                        </tr>
+                </table>
+                <h3>Game History</h3>
+                <table>
+                        <th>User Move</th>
+                        <th>Computer Move</th>
+                        <th>Result</th>
+                        <tr>
+                                <td id="userDisplay"></td>
+                                <td id="computerDisplay"></td>
+                                <td id="resultDisplay"></td>
+                        </tr>
+                </table>
+        </div>
+        </center>
+        <script>
+                const rock=document.getElementById('rock');
+                const paper=document.getElementById('paper');
+                const scissor=document.getElementById('scissor');
+                const reset=document.getElementById('reset');
+                generateComputerMove=()=>{
+                        const randNum=Math.random();
+                        if(randNum<1/3)
+                        {
+                                computerMove='rock';
+                        }
+                        else if(randNum<2/3)
+                        {
+                                computerMove='paper';
+                        }
+                        else
+                        {
+                                computerMove='scissors';
+                        }
+                }
+                rock.addEventListener('click',()=>{
+                        usermove='rock';
+                        rollDice();
+                        generateComputerMove();
+                        result();
+                        console.log(`User move :${usermove} ,computer move :${computerMove}`);
+                });
+                paper.addEventListener('click',()=>{
+                        usermove='paper';
+                        rollDice();
+                        generateComputerMove();
+                        result();
+                        console.log(`User move :${usermove} ,computer move :${computerMove}`);
+                });
+                scissor.addEventListener('click',()=>{
+                        usermove='scissors';
+                        rollDice();
+                        generateComputerMove();
+                        result();
+                        console.log(`User move :${usermove} ,computer move :${computerMove}`);
+                });
+                let win=document.getElementById('win');
+                let loses=document.getElementById('loses');
+                let ties=document.getElementById('ties');
+                let gamesplayed=document.getElementById('gamesplayed');
+                var win_count=0;
+                var loses_count=0;
+                var tie_count=0;
+                var games_count=0;
+
+                reset.addEventListener('click',()=>{
+                        win_count=0;
+                        loses_count=0;
+                        tie_count=0;
+                        games_count=0;
+                        win.innerHTML=`${win_count}`;
+                        loses.innerHTML=`${loses_count}`;
+                        ties.innerHTML=`${tie_count}`;
+                        gamesplayed.innerHTML=`${games_count}`;
+                        const result=document.getElementById('resultDisplay');
+                        result.innerHTML=``;
+                        const computer=document.getElementById('computerDisplay');
+                        computer.innerHTML=``;
+                        const user=document.getElementById('userDisplay');
+                        user.innerHTML=``;
+                        
+                });
+                
+                result=()=>{
+                        const result=document.getElementById('resultDisplay');
+                        const computer=document.getElementById('computerDisplay');
+                        const user=document.getElementById('userDisplay');
+                        user.innerHTML=`<img src=${usermove}.png>`;
+                        result.innerHTML=`<p style="font-weight:bolder; font-size:x-large;margin-left:30px"> --</p>`;
+                        setTimeout(()=>{
+                                
+                        if(usermove=='rock' && computerMove=='scissors')
+                        {
+                                win_count++;
+                                win.innerHTML=`${win_count}`;
+                                result.innerHTML=`WINNER 🥳`;
+                        }
+                        else if(usermove=='paper' && computerMove=='rock')
+                        {
+                                win_count++;
+                                win.innerHTML=`${win_count}`;
+                                result.innerHTML=`WINNER 🥳`;
+                        }
+                        else if(usermove=='scissors' && computerMove=='paper')
+                        {
+                                win_count++;
+                                win.innerHTML=`${win_count}`;
+                                result.innerHTML=`WINNER 🥳`;
+                        }
+                        else if(usermove==computerMove)
+                        {
+                                tie_count++;
+                                ties.innerHTML=`${tie_count}`;
+                                result.innerHTML=`TIE 🙂`;
+                        }
+                        else
+                        {
+                                loses_count++;
+                                loses.innerHTML=`${loses_count}`;
+                                result.innerHTML=`LOOSER 😞`;
+                        }
+                        games_count++;
+                        gamesplayed.innerHTML=`${games_count}`;
+                        computer.innerHTML=`<img src=${computerMove}.png>`;
+                        user.innerHTML=`<img src=${usermove}.png>`;
+                        },1500);
+                        
+                }
+                let rollingInterval;
+                function rollDice() {
+                        clearInterval(rollingInterval);
+                        rollingInterval = setInterval(generateRandomImage, 100);
+                        setTimeout(stopRolling, 1500);
+                }
+                function stopRolling() {
+                        clearInterval(rollingInterval);
+                }
+
+                let generateRandomImage=()=>{
+                const randNum=Math.random();
+                const computer=document.getElementById('computerDisplay');
+                        if(randNum<1/3)
+                        {
+                                computer.innerHTML=`<img src=rock.png>`;
+                        }
+                        else if(randNum<2/3)
+                        {
+                                computer.innerHTML=`<img src=paper.png>`;
+                        }
+                        else
+                        {
+                                computer.innerHTML=`<img src=scissors.png>`;
+                        }
+                };
+
+        </script>
+</body>
+</html>

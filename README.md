@@ -15,7 +15,7 @@ This is a web-based implementation of the classic **Stone-Paper-Scissors** game,
 ---
 
 ## 📸 **Screenshot**
-![Gameplay Screenshot](./rock.png)  
+![Gameplay Screenshot](./screenshot.png)  
 *Sample gameplay screen*  
 
 ---

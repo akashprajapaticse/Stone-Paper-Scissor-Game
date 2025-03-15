@@ -1,145 +1,114 @@
-# ✊✋✌️ Rock Paper Scissors Game
+# ✊✋✌️ Stone-Paper-Scissors Game
 
-Welcome to the **Rock Paper Scissors Game** repository!  
-This is a simple and interactive Rock Paper Scissors game built using **HTML**, **CSS**, and **JavaScript**.  
-The game allows you to play against the computer, keeps track of wins, losses, and ties, and displays the game history in a table format.
+This is a web-based implementation of the classic **Stone-Paper-Scissors** game, built using **HTML**, **CSS**, and **JavaScript**. The game allows players to compete against the computer in a fun and interactive way. The player can select one of the three options: **Stone**, **Paper**, or **Scissors**, and the computer will randomly generate its move.
 
 ---
 
-## 🚀 **Features**
-✅ Play Rock Paper Scissors against the computer  
-✅ Random computer moves using `Math.random()`  
-✅ Score tracking (Wins, Losses, Ties, Games Played)  
-✅ Animated dice roll effect for computer's move  
-✅ Reset button to clear game stats and history  
-✅ Clean and responsive UI  
+## 📌 **Features**
+✅ Classic Rock-Paper-Scissors gameplay  
+✅ Real-time score updates  
+✅ Dynamic and responsive UI  
+✅ Computer-generated moves  
+✅ Win/Loss/Draw message display  
+✅ Reset option to restart the game  
 
 ---
 
-## 🛠️ **Technologies Used**
-- **HTML** – Structuring the web page  
-- **CSS** – Styling the game elements  
-- **JavaScript** – Handling game logic and interactivity  
+## 📸 **Screenshot**
+![Gameplay Screenshot](./rock.png)  
+*Sample gameplay screen*  
 
 ---
 
-## 📥 **Installation**
-1. **Clone the repository:**
-```bash
-git clone https://github.com/akashprajapati-cse/Rock-Paper-Scissors.git
+## 🛠️ **Tech Stack**
+- **HTML** – Structure  
+- **CSS** – Styling and layout  
+- **JavaScript** – Game logic  
+
+---
+
+## 📂 **Folder Structure**
+```
+├── stone.html              # Main HTML file
+├── rock.png                # Rock icon
+├── paper.png               # Paper icon
+├── scissors.png            # Scissors icon
+├── reset.jpg               # Reset button icon
+├── favicon.ico             # Webpage icon
+├── README.md               # Project documentation
 ```
 
-2. **Navigate to the project folder:**
+---
+
+## 🚀 **Setup and Usage**
+### ✅ **1. Clone the repository**:
 ```bash
-cd Rock-Paper-Scissors
+git clone https://github.com/akashprajapaticse/Stone-Paper-Scissor-Game.git
 ```
 
-3. **Open `index.html` in your browser:**  
-- Use a local server (e.g., Live Server in VS Code)  
-- Or directly open the file in your browser  
+### ✅ **2. Open the HTML file**:
+- Open `stone.html` directly in your browser.
+
+### ✅ **3. Usage**:
+1. Select Stone, Paper, or Scissors by clicking the corresponding button.  
+2. The computer will generate a move automatically.  
+3. The result (Win, Loss, or Draw) will be displayed.  
+4. Click **Reset** to restart the game.  
 
 ---
 
-## 🏃 **Usage**
-### ✅ **How to Play:**
-1. Click on **Rock**, **Paper**, or **Scissors** to make your move.  
-2. The computer will randomly select a move.  
-3. The winner will be displayed based on the rules:  
+## 🎯 **How It Works**
+1. `playerChoice()` – Captures the player's choice.  
+2. `generateComputerChoice()` – Randomly generates computer’s choice.  
+3. `determineWinner()` – Determines the winner based on game rules:
    - Rock beats Scissors  
    - Scissors beats Paper  
    - Paper beats Rock  
-   - If both moves are the same → It's a Tie!  
-4. The result and game history will be updated automatically.  
-
-### ✅ **Score Tracking:**
-- Win, Loss, and Tie counts are displayed in a table.  
-- Total games played are also tracked.  
-
-### ✅ **Reset Game:**
-- Click the **Reset** button to reset all stats and history.  
+4. `updateScore()` – Updates and displays the score.  
+5. `resetGame()` – Resets the game state.  
 
 ---
 
-## 📄 **Game Rules**
-| User Move | Computer Move | Result |
-|-----------|---------------|--------|
-| Rock | Scissors | ✅ Win |
-| Scissors | Paper | ✅ Win |
-| Paper | Rock | ✅ Win |
-| Same | Same | 🤝 Tie |
-| Others | Others | ❌ Loss |
+## 🚦 **Troubleshooting**
+❗ **No Output**  
+- Ensure that JavaScript is enabled in your browser.  
+- Open browser console (F12) to check for errors.  
+
+❗ **Game Not Starting**  
+- Ensure that all image files (`rock.png`, `paper.png`, `scissors.png`) are in the same directory as `stone.html`.  
 
 ---
 
-## 🏆 **Code Highlights**
-### ✅ **Generate Computer Move**
-```javascript
-generateComputerMove = () => {
-  const randNum = Math.random();
-  if (randNum < 1 / 3) {
-    computerMove = 'rock';
-  } else if (randNum < 2 / 3) {
-    computerMove = 'paper';
-  } else {
-    computerMove = 'scissors';
-  }
-};
-```
+## 🌟 **Contributing**
+1. Fork the repository.  
+2. Create a new branch (`git checkout -b feature-name`).  
+3. Make your changes and commit (`git commit -m 'Add new feature'`).  
+4. Push to the branch (`git push origin feature-name`).  
+5. Create a pull request.  
 
-### ✅ **Game Logic**
-```javascript
-if (usermove === computerMove) {
-  tie_count++;
-  result.innerHTML = `TIE 🙂`;
-} else if (
-  (usermove === 'rock' && computerMove === 'scissors') ||
-  (usermove === 'paper' && computerMove === 'rock') ||
-  (usermove === 'scissors' && computerMove === 'paper')
-) {
-  win_count++;
-  result.innerHTML = `WINNER 🥳`;
-} else {
-  loses_count++;
-  result.innerHTML = `LOSER 😞`;
-}
-```
+---
 
-### ✅ **Rolling Animation**
-```javascript
-let rollingInterval;
-function rollDice() {
-  clearInterval(rollingInterval);
-  rollingInterval = setInterval(generateRandomImage, 200);
-  setTimeout(stopRolling, 1500);
-}
+## 📜 **License**
+This project is licensed under the **MIT License**.
+
+---
+
+## 👤 **Author**
+👤 **Akash Prajapati** - [GitHub](https://github.com/akashprajapaticse)
+
+---
+
+## ⭐ **Show Your Support**
+If you like this project, give it a ⭐ on GitHub!
 ```
 
 ---
 
-## 🌟 **Best Practices**
-- Keep your browser console open to track any errors.  
-- For best experience, run using a local server.  
-- Make sure the image files (`rock.png`, `paper.png`, `scissors.png`, `reset.jpg`) are in the project folder.  
+### ✅ **Changes:**
+- Added screenshot reference  
+- Enhanced feature list and setup instructions  
+- Clarified troubleshooting steps  
 
 ---
 
-## 👨‍💻 **Contributors**
-- **Akash Prajapati** – [GitHub](https://github.com/akashprajapati-cse)  
-
----
-
-## 📄 **License**
-This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
-
----
-
-**⭐ If you like this project, give it a star on GitHub!**  
-```
-
----
-
-### 🔥 **Tips:**
-- Make sure that the image files (`rock.png`, `paper.png`, `scissors.png`, `reset.jpg`) are correctly linked and available in the project folder.  
-- Once you add this `README.md`, GitHub will automatically display it on the main repository page.  
-
-Let me know if you need more help! 😎
+Let me know if you need more updates! 😎

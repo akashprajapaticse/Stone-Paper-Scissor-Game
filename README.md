@@ -101,14 +101,3 @@ This project is licensed under the **MIT License**.
 ## ⭐ **Show Your Support**
 If you like this project, give it a ⭐ on GitHub!
 ```
-
----
-
-### ✅ **Changes:**
-- Added screenshot reference  
-- Enhanced feature list and setup instructions  
-- Clarified troubleshooting steps  
-
----
-
-Let me know if you need more updates! 😎
